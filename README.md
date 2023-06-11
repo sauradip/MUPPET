@@ -28,7 +28,8 @@
 <h3><strong>Under review in <a href='https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34' target='_blank'>TPAMI</a></strong></h3>
 
 <h3 align="center">
-  <a href="https://arxiv.org/abs/2211.14905" target='_blank'>Paper</a> 
+  <a href="https://arxiv.org/abs/2211.14905" target='_blank'>Paper</a> |
+    <a href="assets/MUPPET.pdf" target='_blank'>Slides</a> 
 </h3>
 
 <table>
