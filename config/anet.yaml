@@ -1,0 +1,88 @@
+dataset:
+  num_classes: 200
+  split: 75
+  training:
+    video_info_path: "./data/activitynet_annotations/video_info_new.csv"
+    video_anno_path: "./data/activitynet_annotations/anet_anno_action.json"
+    num_frame: 5
+    output_path: './data/extra/GSM-ABLATION/'
+    
+  testing:
+    video_info_path: "./data/activitynet_annotations/video_info_new.csv"
+    video_anno_path: "./data/activitynet_annotations/anet_anno_action.json"
+    num_frame: 5
+    output_path: './data/extra/GSM-ABLATION/'
+
+model:
+  embedding_head: 4
+  feat_dim: 512
+  temporal_scale: 100
+  clip_pretrain: "O" ## K : KInetics , O : openAI
+
+training:
+  batch_size: 6 # 80
+  learning_rate: 0.00004
+  weight_decay: 0.02
+  max_epoch: 5
+  checkpoint_path: './data/extra/GSM-ABLATION/'
+  random_seed: 1
+  step: 10
+  gamma: 0.3
+  # feature_path: "./data/extra/I3D-ANET/"
+  feature_path: "./data/extra/ANET-Raw/Features/ANet_CLIP/"
+  num_gpu: 1
+
+loss:
+  lambda_1: 0.6
+  lambda_2: 0.4
+
+fewshot:
+  shot: 3 ## > 0 is few-shot ;  = 0 is zero-shot 
+  mode: 3 # 1 : base-training 2 : meta-training 3 : meta-testing 4 : no meta-training/ vanilla few-shot
+  trimmed: 0 # 0 : untrimmed 1 : trimmed
+  episode: 1000
+  num_base: 180
+  num_test: 20
+  ismulti : 1 # 0 : single-instance 1 : multi-instance
+  num_way : 2
+  meta_class : 1 ## 1: meta-learn classifier 0: vanilla few-shot w/o meta-learning
+  meta_mask : 0 ## 1: meta-learn mask 0: vanilla few-shot w/o meta-learning
+  trim_support : 1
+  num_context : 20
+  isrand : 1 ## 0: random split, 1: controlled split
+
+testing:
+  cls_thresh: 0.01
+  mask_thresh: [0,0.2,0.4,0.6,0.8]
+  class_thresh: [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]
+  top_k_snip: 10
+  top_k: 500
+  nms_thresh: 0.6
+
+pretraining:
+  video_transformer: "data/extra/videomae_pretrain_vit_b_1600.pth"
+  isPretrain : 1 # 0 : Finetune , 1 : Pretrain
+  # video_path: "./data/extra/ANET-Raw/ANet_raw_Data/ANet1.3_final_transform_np"
+  video_path: "./data/extra/dataset/video/ActivityNet/v13_processed_npy"
+  raw_video: "./data/extra/ANET-Raw/ANet_raw_Data/ANet1.3_final"
+  clip_length: 768
+  clip_stride: 6
+  emb_dim: 512
+
+demo:
+  generated_feat_dir: "./data/extra/AdaptFormer-ANET"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
