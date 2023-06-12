@@ -111,7 +111,7 @@ python stale_pretrain_base.py
 After Training with Base split , now our model is ready to transfoer knowledge to novel classes. But still we need to adapt the decoder head using few-support (few-shot) samples. For this we need another stage training. 
 
 #### (2) Meta Training
-To pre-train STALE-FS on novel-class split , first set the parameter ``` ['fewshot']['mode'] = 2 ``` , ``` ['fewshot']['shot'] = 1/2/3/4/5 ```, ``` ['fewshot']['nway'] = 1/2/3/4/5 ``` in ``` config/anet.yaml ``` file. Then run the following command.
+To pre-train MUPPET on novel-class split , first set the parameter ``` ['fewshot']['mode'] = 2 ``` , ``` ['fewshot']['shot'] = 1/2/3/4/5 ```, ``` ['fewshot']['nway'] = 1/2/3/4/5 ``` in ``` config/anet.yaml ``` file. Then run the following command.
 
 ```shell script
 python stale_inference_meta_pretrain.py
@@ -126,7 +126,7 @@ python stale_inference_meta_pretrain.py
 Same .py file as meta-train but the few-shot mode is changed. This step shows a lot of variation as random classes are picked up as query and intra-class variation causes mAP to vary. SO a high number of few-shot episodes is/should be kept. This command saves the video output and post-processes. 
 
 ### Model Evaluation
-To evaluate our STALE-FS model run the following command. 
+To evaluate our MUPPET model run the following command. 
 ```shell script
 python eval.py
 ```
