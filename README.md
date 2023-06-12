@@ -77,7 +77,7 @@ pip3 install -r requirements.txt
 We have used the implementation of [Maskformer](https://github.com/facebookresearch/MaskFormer) for Representation Masking. 
 ```shell script
 git clone https://github.com/sauradip/MUPPET.git
-cd STALE
+cd MUPPET
 git clone https://github.com/facebookresearch/MaskFormer
 ```
 Follow the [Installation](https://github.com/facebookresearch/MaskFormer/blob/main/INSTALL.md) instructions to install Detectron and other modules within this same environment if possible. After this step, place the files in ``` /MUPPET/extra_files ``` into ``` /MUPPET/MaskFormer/mask_former/modeling/transformer/ ```. 
