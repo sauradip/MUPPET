@@ -63,7 +63,7 @@ Few-shot (FS) and zero-shot (ZS) learning are two different approaches for scali
 ### Requirements
 - Python 3.7
 - PyTorch == 1.9.0  **(Please make sure your pytorch version is atleast 1.8)**
-- NVIDIA GPU
+- 8 x NVIDIA 3090 GPU
 - Hugging-Face Transformers
 - Detectron
 
